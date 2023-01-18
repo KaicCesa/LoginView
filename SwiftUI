@@ -1,0 +1,80 @@
+import SwiftUI
+
+struct LoginView: View {
+    
+    @State var email = ""
+    @State var password = ""
+    
+    var body: some View {
+    
+        VStack {
+            Text("BEM VINDO")
+                .foregroundColor(.white)
+                .font(.title)
+                .padding(.bottom, 35)
+            
+            TextField("Digite seu email", text: $email)
+                .autocapitalization(.none)
+                .autocorrectionDisabled(false)
+                .padding()
+                .foregroundColor(.black)
+                .background(.white)
+                .cornerRadius(24.0)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 24.0)
+                        .strokeBorder(Color(UIColor.separator),
+                                      style: StrokeStyle(lineWidth: 1))
+                )
+                .padding(.bottom, 20)
+            
+            SecureField("Digite sua senha", text: $password)
+                .autocapitalization(.none)
+                .autocorrectionDisabled(false)
+                .padding()
+                .foregroundColor(.black)
+                .background(.white)
+                .cornerRadius(24.0)
+                .overlay(
+                RoundedRectangle(cornerRadius: 24.0)
+                    .strokeBorder(Color(UIColor.separator),
+                              style: StrokeStyle(lineWidth: 1)))
+                .padding(.bottom,50)
+            
+            Button {
+                
+            } label: {
+                Text("Entrar")
+            }
+            .frame(maxWidth: .infinity)
+            .padding()
+            .foregroundColor(.black)
+            .background(.blue)
+            .cornerRadius(24.0)
+            .overlay(
+                RoundedRectangle(cornerRadius: 24.0)
+                    .strokeBorder(Color(UIColor.separator),
+                                  style: StrokeStyle(lineWidth: 1))
+            )
+            
+            
+            Divider()
+                .padding(30)
+            
+            
+            Text("Copyright @KaicCesar")
+                .foregroundColor(.gray)
+                .padding(.bottom, 30)
+            
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding(.horizontal, 32)
+        .background(
+            LinearGradient(gradient: Gradient(colors: [.white, .blue]), startPoint: .bottom, endPoint: .top))
+    }
+}
+
+struct LoginView_Previews: PreviewProvider {
+    static var previews: some View {
+        LoginView()
+    }
+}
